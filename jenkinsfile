@@ -6,7 +6,7 @@ pipeline {
 
 
     stages{
-         stage('Terraform destroy if any'){
+         stage('Terraform destroy (if any)'){
             steps{
                 dir('/var/lib/jenkins/workspace/Terraform-Provision/Vms'){
                     sh 'terraform destroy --auto-approve'    
