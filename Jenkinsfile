@@ -10,13 +10,14 @@ pipeline {
             steps{       
                   sh 'ls -ltr'                 
             }
+         }
          stage('Terraform destroy (if any II)'){
             steps{       
                   sh 'pwd'                
                 
             }
          }
-        }        
+               
         
         
     }
