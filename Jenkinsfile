@@ -6,14 +6,6 @@ pipeline {
 
 
     stages{               
-        stage('Terraform destroy (if any'){
-            steps{
-                dir('/var/lib/jenkins/workspace/IaC-I_feature-tf/Vms'){
-                    sh 'terraform destroy --auto-approve'    
-                }
-                
-            }
-        } 
         stage('Terraform init'){
             steps{
                 dir('Vms'){
