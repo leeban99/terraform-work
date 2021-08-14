@@ -8,7 +8,10 @@ pipeline {
     stages{
          stage('Terraform destroy (if any)'){
             steps{       
-                  sh 'ls -ltr'    
+                  sh 'ls -ltr'                 
+            }
+            steps{       
+                  sh 'pwd'    
                 
                 
             }
