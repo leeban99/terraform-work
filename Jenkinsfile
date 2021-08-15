@@ -5,16 +5,24 @@ pipeline {
     }
 
 
-    stages{
-         stage('Terraform destroy (if any)'){
-            steps{       
-                  sh 'ls -ltr'    
-                
+    stages{               
+        stage('Terraform init'){
+            steps{
+                dir('Vms'){
+                    sh 'terraform init'    
+                }
                 
             }
-        }        
-        
-        
+        }
+        stage('Terraform apply'){
+            steps{
+                dir('Vms'){
+                    sh 'terraform apply --auto-approve'    
+                }
+                
+            }
+        }
+         
     }
 
     
