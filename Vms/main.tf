@@ -31,7 +31,7 @@ resource "google_compute_firewall" "terraforn_firewall" {
 }
 
 resource "google_compute_instance" "vm_instance" {
- count = 2
+ count = 3
  name = "terraform-instance-${count.index}"
  machine_type = "f1-micro"
  tags = ["demo-vm-instance"]
