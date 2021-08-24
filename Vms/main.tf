@@ -31,7 +31,7 @@ resource "google_compute_firewall" "terraforn_firewall" {
 }
 
 resource "google_compute_instance" "vm_instance" {
- count = 4
+ count = 1
  name = "terraform-instance-${count.index}"
  machine_type = "f1-micro"
  tags = ["demo-vm-instance"]
@@ -45,4 +45,20 @@ resource "google_compute_instance" "vm_instance" {
   access_config{
   }
  }
+}
+
+
+resource "google_compute_instance" "staging_vm" {
+  name         = "staging-vm"
+  machine_type = "e2-medium"
+  zone         = "us-central1-c"
+  boot_disk {
+    initialize_params {
+      image = data.google_compute_image.debian_image.self_link
+    }
+  }
+
+  network_interface {
+    network = "default"
+  }
 }
