@@ -5,13 +5,6 @@ provider "google" {
  zone        = "us-central1-a"
 }
 
-resource "google_compute_instance_group" "test" {
-  name        = "terraform-test"
-  description = "Terraform test instance group"
-  zone        = "us-central1-a"
-  network     = google_compute_network.vpc_network.id
-}
-
 resource "google_compute_network" "vpc_network" {
  name = "vpc-terraform-network"
  auto_create_subnetworks = false
