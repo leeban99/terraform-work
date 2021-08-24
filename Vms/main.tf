@@ -59,6 +59,6 @@ resource "google_compute_instance" "staging_vm" {
   }
 
   network_interface {
-    network = google_compute_network.vpc_network.id
+    subnetwork = google_compute_subnetwork.custom_mode_vpc.id
   }
 }
