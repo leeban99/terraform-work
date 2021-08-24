@@ -14,6 +14,14 @@ pipeline {
                 
             }
         }
+        stage('Terraform plan'){
+            steps{
+                dir('Vms'){
+                    sh 'terraform plan'    
+                }
+                
+            }
+        }
         stage('Terraform apply'){
             steps{
                 dir('Vms'){
