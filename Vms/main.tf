@@ -51,7 +51,7 @@ resource "google_compute_instance" "vm_instance" {
 resource "google_compute_instance" "staging_vm" {
   name         = "staging-vm"
   machine_type = "e2-medium"
-  zone         = "us-central1-c"
+  zone         = "us-central1-a"
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-9"
