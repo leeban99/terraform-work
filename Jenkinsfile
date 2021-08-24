@@ -8,7 +8,7 @@ pipeline {
     stages{               
         stage('Terraform init'){
             steps{
-                dir('Vms'){
+                dir('mig'){
                     sh 'terraform init'    
                 }
                 
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Terraform plan'){
             steps{
-                dir('Vms'){
+                dir('mig'){
                     sh 'terraform plan'    
                 }
                 
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Terraform apply'){
             steps{
-                dir('Vms'){
+                dir('mig'){
                     sh 'terraform apply --auto-approve'    
                 }
                 
