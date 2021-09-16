@@ -1,5 +1,5 @@
 provider "google" {
- credentials = file("credentials.json")
+ credentials = file("/home/osboxes/key/credentials.json")
  project     = "turnkey-cooler-316513"
  region      = var.region
  zone        = var.zone
@@ -31,10 +31,14 @@ resource "google_compute_firewall" "terraforn_firewall" {
 }
 
 resource "google_compute_instance" "vm_instance" {
+<<<<<<< HEAD
  count = 1
  name = "general-purpose-${count.index}-data"
+=======
+ name = "general-purpose"
+>>>>>>> ff2dbe86c3f2aae1dbabf4918b65e5e1d439ffb5
  machine_type = "f1-micro"
- tags = ["demo-vm-instance"]
+ tags = ["gp-vm-instance"]
  boot_disk {
   initialize_params {
     image = "debian-cloud/debian-9"
