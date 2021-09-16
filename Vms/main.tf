@@ -1,8 +1,8 @@
 provider "google" {
  credentials = file("credentials.json")
  project     = "turnkey-cooler-316513"
- region      = "us-central1"
- zone        = "us-central1-a"
+ region      = var.region
+ zone        = var.zone
 }
 
 resource "google_compute_network" "vpc_network" {
@@ -13,7 +13,7 @@ resource "google_compute_network" "vpc_network" {
 resource "google_compute_subnetwork" "custom_mode_vpc" {
  name = "log-test-subnetwork"
  ip_cidr_range = "10.2.0.0/16"
- region = "us-central1"
+ region = var.region
  network = google_compute_network.vpc_network.id
 }
 
@@ -31,7 +31,8 @@ resource "google_compute_firewall" "terraforn_firewall" {
 }
 
 resource "google_compute_instance" "vm_instance" {
- name = "terraform-instance"
+ count = 1
+ name = "general-purpose-${count.index}-data"
  machine_type = "f1-micro"
  tags = ["demo-vm-instance"]
  boot_disk {
